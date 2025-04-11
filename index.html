@@ -35,7 +35,7 @@
 
             <!-- Toolbar -->
             <div class="toolbar">
-                <button class="toolbar-button">
+                <button class="toolbar-button" id="back-button">
                     <img src="img/back.ico" alt="back ico" class="img-ico">
                     Back
                 </button>
@@ -157,6 +157,25 @@
             </div>
         </div>
     </div>
+    <script>
+        const addressInput = document.querySelector('.address-input');
+        const goButton = document.querySelector('.address-button');
+        const backButton = document.getElementById('back-button');
+
+        function handleNavigation() {
+            const url = addressInput.value.trim();
+            if (url.toLowerCase() !== 'https://gajalves.github.io/') {
+                window.location.href = 'pages/404.html';
+            }
+        }
+
+        goButton.addEventListener('click', handleNavigation);
+        addressInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleNavigation();
+            }
+        });
+    </script>
 </body>
 
 </html>
